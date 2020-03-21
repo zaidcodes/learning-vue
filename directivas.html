@@ -11,6 +11,8 @@
     <div id="app">
         <div class="container">
             <div class="jumbotron">
+                <!-- Hace enlace con la variable edad, obteniendo el valor y modificando el mismo por el input -->
+                <input type="text" v-model="edad"> 
                 <!-- Condiciona la visibilidad del contenido de la etiqueta -->
                 <h1 v-show="edad > 18">Eres mayor de edad</h1>
             </div>
