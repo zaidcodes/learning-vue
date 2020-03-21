@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprendiendo vue</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 </head>
 <body>
-    
+
+    <!-- APP -->
+    <div id="app">
+        <h1> {{ mensaje }} </h1>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        var myApp = new Vue({
+            el: "#app",
+            data: {
+                mensaje: "Hola mundo",
+            },
+        });
+    </script>
+
 </body>
 </html>
