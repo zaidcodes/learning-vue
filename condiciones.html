@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condiciones</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    
+    <!-- APP -->
+    <div id="app">
+        <div class="jumbotron">
+            <!-- La directiva @click es equivalente a v-on:click, es para activar el evento click al hacer click en el botón  -->
+            <button class="btn btn-danger" @click="kiss--">
+                Unkiss 😷
+            </button>
+            <button class="btn btn-success" v-on:click="kiss++">
+                Kiss 😘
+            </button>
+                Kisses = {{ kiss }}
+            <!-- v-if: Condiciona la visibilidad del contenido -->
+            <p v-if="kiss < 3">
+                sapo 🐸
+            </p>
+            <!-- v-else: Si no se cumple la contidición anterio se visualizará lo siguiente -->
+            <p v-else>
+                principe 🤴
+            </p>
+        </div>
+    </div>
+
+
+    <!-- SCRIPT -->
+    <script>
+        var myApp = new Vue({
+            el: "#app",
+            data: {
+                kiss:0,
+            },
+        })
+    </script>
+
+</body>
+</html>
