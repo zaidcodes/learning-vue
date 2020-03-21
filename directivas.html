@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directivas</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="jumbotron">
+                <!-- Condiciona la visibilidad del contenido de la etiqueta -->
+                <h1 v-show="edad > 18">Eres mayor de edad</h1>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var myApp = new Vue({
+            el:"#app",
+            data:{
+                edad:19,
+            },
+        }); 
+    </script>
+</body>
+</html>
