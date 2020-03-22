@@ -3,4 +3,9 @@ var myApp = new Vue({
     data: {
         votos: 0,
     },
+    methods: {
+        votar: function (){
+            this.votos++;
+        }
+    }
 });
