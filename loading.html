@@ -9,8 +9,19 @@
 </head>
 <body>
 
+    <style>
+        [v-cloack]   > * {display:none;}
+        [v-cloack]::before{
+            content: "";
+            display: block;
+            width: 120px;
+            height: 120px;
+            background-image: url('https://loading.io/mod/spinner/rolling/sample.gif');
+        }
+    </style>
+
     <!-- APP -->
-    <div id="app">
+    <div id="app" v-cloack>
         <h1> {{ mensaje }} </h1>
     </div>
     <button onclick="loadFunction()">Cargar app</button>
