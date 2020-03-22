@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-html</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+    <!-- APP -->
+    <div id="app">
+        <div class="container">
+            <div class="jumbotron">
+                <!-- renderiza codigo html contenido en una variable -->
+                <div v-html="codehtml">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        var myApp = new Vue({
+            el: "#app",
+            data: {
+                codehtml: '<button type="button" class="btn btn-success">Success</button>',
+            },
+        });
+    </script>
+
+</body>
+</html>
