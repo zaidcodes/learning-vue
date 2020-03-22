@@ -13,7 +13,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6">
-                    <form>
+                    <form class="jumbotron">
                         <div class="form-group">
                             <label for="clave">Clave</label>
                             <input type="text" class="form-control" id="clave" v-model="clave">
@@ -26,14 +26,20 @@
                             <label for="descripcion">Descripción</label>
                             <input type="text" class="form-control" id="descripcion" v-model="descripcion">
                         </div>
-                        <button class="btn btn-primary" @click.prevent="agregar(clave, titulo, descripcion)">Agregar</button>
+                        <button class="btn btn-success btn-lg btn-block" @click.prevent="agregar(clave, titulo, descripcion)">Agregar</button>
                     </form>
                 </div>
                 <div class="col-6">
-                    Clave: {{ clave }} </br>
-                    Titulo: {{ titulo }} </br>
-                    Descripción: {{ descripcion }} </br>
-                    Lista: {{ lista }}
+                    <ul class="list-group">
+                        <li class="list-group-item bg-light mb-2" v-for="item in lista">
+                            <div class="row bg-light">
+                                Clave: {{ item.clave }} </br>
+                                Titulo: {{ item.titulo }} </br>
+                                Descripción: {{ item.descripcion }} </br>
+                                <button class="btn btn-danger btn-lg btn-block" @click="eliminar(item.clave)">[X]</button>
+                            </div>                        
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

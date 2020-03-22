@@ -7,7 +7,7 @@ var myApp = new Vue({
         lista:[],
     },
     methods:{
-        agregar: function(clave, titulo, descripcion) {
+        agregar: function (clave, titulo, descripcion) {
             var item = {
                 clave: clave,
                 titulo: titulo,
@@ -15,6 +15,13 @@ var myApp = new Vue({
             }
             this.lista.push(item)
             this.limpiarCampos()
+        },
+        eliminar: function (clave) {
+            var index = this.lista.map(function(obj) {
+                return obj.clave
+            }).indexOf(clave)
+
+            this.lista.splice(index,1)
         },
         limpiarCampos: function() {
             this.clave = ""
