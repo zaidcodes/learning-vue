@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-cloack</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+    <!-- APP -->
+    <div id="app">
+        <h1> {{ mensaje }} </h1>
+    </div>
+    <button onclick="loadFunction()">Cargar app</button>
+    <!-- SCRIPT -->
+    <script>
+        function loadFunction() {
+            var myApp = new Vue({
+                el: "#app",
+                data: {
+                    mensaje: "Hola mundo",
+                },
+            });
+        }
+        
+    </script>
+
+</body>
+</html>
