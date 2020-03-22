@@ -5,6 +5,7 @@ var myApp = new Vue({
         titulo:'',
         descripcion:'',
         lista:[],
+        txtBuscar: "",
     },
     methods:{
         agregar: function (clave, titulo, descripcion) {
@@ -29,4 +30,18 @@ var myApp = new Vue({
             this.descripcion = ""
         },
     },
+    computed:{
+        listaFiltrada: function () {
+            var listaAux = this.lista
+            var consulta = this.txtBuscar
+            if(consulta !== ""){
+                listaAux = listaAux.filter(function (obj) {
+                    return (
+                        obj.titulo.toLowerCase() + ' ' + obj.descripcion.toLowerCase()
+                    ).indexOf(consulta.toLowerCase()) > - 1
+                });
+            } 
+            return listaAux;
+        }
+    }
 });
