@@ -10,11 +10,23 @@
 
     <!-- APP -->
     <div id="app">
-        <button class="btn btn-primary" v-on:click="votar()">Votar v-on</button>
-        <button class="btn btn-primary" @click="votar()">Votar @</button>
-        <p>
-            Cantidad de votos: <strong>{{ votos }}</strong>
-        </p>
+        <div class="container">
+            <div class="row">
+                <button class="btn btn-primary" @click="votar()">Votar</button>
+                <p>
+                    Cantidad de votos: <strong>{{ votos }}</strong>
+                </p>
+            </div>
+            
+            <div class="row">
+                <div class="col-6">
+                    <input class="form-control" type="text" v-model="nombre">
+                    <input class="form-control" type="text" v-model="apellido">
+                    <label class="form-control" for="">{{ nombreCompleto }}</label>
+                </div>  
+            </div>
+        </div>
+
     </div>
 
     <!-- SCRIPT -->
