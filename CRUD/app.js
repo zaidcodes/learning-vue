@@ -30,6 +30,16 @@ var myApp = new Vue({
             this.titulo =  ""
             this.descripcion = ""
         },
+        listarItemsFromFirebase(){
+            var datos = firebase.database().ref("cosas")
+
+            datos.on("value", function (snapshot) {
+                snapshot.forEach(function (childSnapshot) {
+                    var childData = childSnapshot.val()
+                    myApp.lista.push(childData)
+                });
+            })
+        }
     },
     computed:{
         listaFiltrada: function () {
@@ -46,13 +56,6 @@ var myApp = new Vue({
         }
     },
     created: function () {
-        var datos = firebase.database().ref("cosas")
-
-        datos.on("value", function (snapshot) {
-            snapshot.forEach(function (childSnapshot) {
-                var childData = childSnapshot.val()
-                myApp.lista.push(childData)
-            });
-        })
+        this.listarItemsFromFirebase()
     },
 });
