@@ -16,6 +16,7 @@ var myApp = new Vue({
             }
             this.lista.push(item)
             this.limpiarCampos()
+            firebase.database().ref("cosas/" + clave).set(item)
         },
         eliminar: function (clave) {
             var index = this.lista.map(function(obj) {
