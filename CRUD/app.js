@@ -14,16 +14,19 @@ var myApp = new Vue({
                 titulo: titulo,
                 descripcion: descripcion,
             }
-            this.lista.push(item)
+            // this.lista.push(item)
             this.limpiarCampos()
             firebase.database().ref("cosas/" + clave).set(item)
+            this.recargarLista()
         },
         eliminar: function (clave) {
-            var index = this.lista.map(function(obj) {
-                return obj.clave
-            }).indexOf(clave)
+            // var index = this.lista.map(function(obj) {
+            //     return obj.clave
+            // }).indexOf(clave)
 
-            this.lista.splice(index,1)
+            // this.lista.splice(index,1)
+            this.eliminarOnFirebase(clave)
+            this.recargarLista()
         },
         limpiarCampos: function() {
             this.clave = ""
@@ -39,6 +42,13 @@ var myApp = new Vue({
                     myApp.lista.push(childData)
                 });
             })
+        },
+        eliminarOnFirebase(clave){
+            firebase.database().ref("cosas/" + clave).remove()
+        },
+        recargarLista(){
+            this.lista = []
+            this.listarItemsFromFirebase()
         }
     },
     computed:{
