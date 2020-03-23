@@ -44,5 +44,15 @@ var myApp = new Vue({
             } 
             return listaAux;
         }
-    }
+    },
+    created: function () {
+        var datos = firebase.database().ref("cosas")
+
+        datos.on("value", function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                var childData = childSnapshot.val()
+                myApp.lista.push(childData)
+            });
+        })
+    },
 });
